@@ -11,19 +11,19 @@ const CleanerNotificationsPanel = ({ token }) => {
   useEffect(() => {
     fetchNotifications();
 
-    const interval = setInterval(fetchNotifications, 30000); // ✅ Auto-refresh every 30s
+    const interval = setInterval(fetchNotifications, 30000); // Auto-refresh every 30s
     return () => clearInterval(interval);
   }, []);
 
   const fetchNotifications = () => {
-    axios.get("https://localhost:7196/api/CleanerDashboard/notifications", {
+    axios.get("https://apcleaningbackend20251029193438.azurewebsites.net/api/CleanerDashboard/notifications", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
         const newData = res.data;
         const currentUnread = newData.filter(n => !n.isRead).length;
 
-        // ✅ Toast + vibration + sound if new unread messages arrive
+        // Toast + vibration + sound if new unread messages arrive
         if (currentUnread > prevUnreadCount.current) {
           toast.info(`📬 You have ${currentUnread} unread notification${currentUnread > 1 ? "s" : ""}`);
 
@@ -42,7 +42,7 @@ const CleanerNotificationsPanel = ({ token }) => {
   };
 
   const markAsRead = (id) => {
-    axios.put(`https://localhost:7196/api/CleanerDashboard/notifications/${id}/read`, null, {
+    axios.put(`https://apcleaningbackend20251029193438.azurewebsites.net/api/CleanerDashboard/notifications/${id}/read`, null, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => fetchNotifications())

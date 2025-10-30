@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Collapse from '@preline/collapse'
-import APCleaningLogo from '../assets/aPCleaningLogo.png';
+import APCleaningLogo from '../assets/APCleaningLogo.png';
 import { jwtDecode } from "jwt-decode";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -9,6 +9,14 @@ import { AuthContext } from "../context/AuthContext";
 const Navigation = () => {
 
   const { user, logout } = useContext(AuthContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (window.HSStaticMethods) {
+        window.HSStaticMethods.autoInit();
+      }
+    }, 100);
+  }, []);
 
 
 return(

@@ -16,7 +16,7 @@ const DriverNotificationsPanel = ({ token }) => {
   }, []);
 
   const fetchNotifications = () => {
-    axios.get("https://localhost:7196/api/DriverDashboard/notifications", {
+    axios.get("https://apcleaningbackend20251029193438.azurewebsites.net/api/DriverDashboard/notifications", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
@@ -42,7 +42,7 @@ const DriverNotificationsPanel = ({ token }) => {
   };
 
   const markAsRead = (id) => {
-    axios.put(`https://localhost:7196/api/DriverDashboard/notifications/${id}/read`, null, {
+    axios.put(`https://apcleaningbackend20251029193438.azurewebsites.net/api/DriverDashboard/notifications/${id}/read`, null, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => fetchNotifications())

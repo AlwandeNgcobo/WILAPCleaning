@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { AuthProvider } from "./context/AuthContext";
+import 'preline';
 
 
 createRoot(document.getElementById('root')).render(
@@ -14,3 +15,11 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+if (window.HSStaticMethods) {
+  window.HSStaticMethods.autoInit();
+} else {
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.HSStaticMethods) window.HSStaticMethods.autoInit();
+  });
+}
