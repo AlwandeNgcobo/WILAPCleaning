@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
 import axios from 'axios';
-import APCleaningLogo from '../../assets/aPCleaningLogo.png';
+import APCleaningLogo from '../../assets/APCleaningLogo.png';
 import bgImage from '../../assets/background.jpg';
 
 const Login = () => {
