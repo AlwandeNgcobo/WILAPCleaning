@@ -1,4 +1,5 @@
 import Footer from "../../components/Footer";
+import APCleaningLogo from '../../assets/APCleaningLogo.png';
 
 const About = () => {
   return (
@@ -36,7 +37,7 @@ const About = () => {
             </div>
             <div className="relative flex items-center justify-center bg-gray-100 rounded-xl shadow-lg p-6 sm:p-8 md:p-12">
               <img
-                src="/src/assets/APCleaningLogo.png"
+                src={APCleaningLogo}
                 alt="AP Cleaning Services Logo"
                 className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto"
               />
@@ -161,11 +162,6 @@ const About = () => {
                 </div>
               </div>
               <div className="relative">
-                <img 
-                  src="/api/placeholder/500/400" 
-                  alt="Technology Platform" 
-                  className="rounded-xl shadow-lg"
-                />
               </div>
             </div>
           </div>
